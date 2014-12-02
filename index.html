@@ -41,6 +41,7 @@
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js'></script>
     <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src='key.js'></script>
     <script>
       $(document).ready(function(){
 
@@ -48,8 +49,9 @@
           event.preventDefault();
 
 
-          $.get('http://api.github.com/users/'+ $('#username').val() + '/', function(data){
-            console.log(data);
+          $.get('http://api.github.com/users/'+ $('#username').val() + '?'+ github_key, function(user){
+            var newProfile = Mustache.render($('#profile-template').html(), user);
+            $('.profile-container').append(newProfile);
           })
         })
     
