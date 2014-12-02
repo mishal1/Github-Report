@@ -49,13 +49,13 @@
           event.preventDefault();
 
 
-          $.get('http://api.github.com/users/'+ $('#username').val() + '?'+ github_key, function(user){
+          $.get('http://api.github.com/users/'+ $('#username').val() + '?' + 'client_id=' + client_id + '&client_secret=' + client_secret, function(user){
             var newProfile = Mustache.render($('#profile-template').html(), user);
             $('.profile-container').append(newProfile);
           })
         })
-    
-       
+
+
       });
     </script>
 
