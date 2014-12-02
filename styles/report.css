@@ -22,6 +22,7 @@ input {
   border-radius: 15px;
   color: #fff;
   margin-bottom: 20px;
+  display: none;
 }
 
 .profile a {
@@ -42,6 +43,7 @@ input {
 .profile .details h3 {
   margin-top: 0;
 }
+
 .profile img {
   width: 100%;
 }

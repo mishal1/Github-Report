@@ -33,6 +33,7 @@
           <h4>
             Followers: {{followers}}
           </h4>
+          <a href="#" id="close">x</a>
         </section>
         <br clear="all">
       </section>
@@ -43,18 +44,19 @@
     <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
     <script src='key.js'></script>
     <script>
+      function addProfile(username) {
+        $.get('http://api.github.com/users/'+ username + '?' + 'client_id=' + client_id + '&client_secret=' + client_secret, function(user){
+          var newProfile = Mustache.render($('#profile-template').html(), user);
+          $(newProfile).appendTo('.profile-container').slideDown();
+        })
+      };
+
       $(document).ready(function(){
 
         $(".load-profile").on('click',function(event){
           event.preventDefault();
-
-
-          $.get('http://api.github.com/users/'+ $('#username').val() + '?' + 'client_id=' + client_id + '&client_secret=' + client_secret, function(user){
-            var newProfile = Mustache.render($('#profile-template').html(), user);
-            $('.profile-container').append(newProfile);
-          })
-        })
-
+          addProfile($('#username').val());
+          });
 
       });
     </script>
