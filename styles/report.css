@@ -7,21 +7,23 @@ input {
   width: 510px;
 }
 
+#add_profile, .error-container, .profile-container {
+  width: 40%;
+  margin: 0 auto;
+}
+
+#add_profile {
+  padding: 0 0 20px 0;
+  margin-bottom: 30px
+}
+
 .profile {
-  background: #606c88; /* Old browsers */
-  background: -moz-linear-gradient(top,  #606c88 0%, #3f4c6b 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#606c88), color-stop(100%,#3f4c6b)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #606c88 0%,#3f4c6b 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #606c88 0%,#3f4c6b 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #606c88 0%,#3f4c6b 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #606c88 0%,#3f4c6b 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */
-  width: 600px;
-  padding: 20px 20px 10px 20px;
+  background: #36459a;
+  width: 100%;
+  padding: 0;
   font-family: Helvetica Neue;
   border-radius: 15px;
   color: #fff;
-  margin-bottom: 20px;
   display: none;
 }
 
@@ -32,12 +34,14 @@ input {
 .profile .avatar {
   width: 110px;
   float: left;
+  margin: 20px;
 }
 
 .profile .details {
-  width: 450px;
+  width: 420px;
   float: left;
   padding: 0 20px;
+  margin: 20px 20px 20px 0;
 }
 
 .profile .details h3 {
@@ -46,4 +50,69 @@ input {
 
 .profile img {
   width: 100%;
+}
+
+.close {
+  float: right;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  padding: 4px 8px;
+  margin: 20px;
+  transition: all 1s;
+}
+
+.close:hover{
+  background: #ffffff;
+  color: #606c88;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+#add_profile input {
+  width: 60%;
+  float: left;
+  border: 1px solid #36459a;
+  border-radius: 10px 0 0 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+
+}
+
+#add_profile button {
+  width: 40%;
+  float: left;
+  margin-bottom: 20px;
+  border: 1px solid #36459a;
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  background: #36459a;
+  transition: all 1s;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+#add_profile button:hover {
+  background: #5168c0;
+}
+
+.error-container {
+  background: #36459a;
+  width: 40%;
+  padding: 0;
+  font-family: Helvetica Neue;
+  border-radius: 15px;
+  color: #fff;
+  margin-bottom: 20px;
+  clear: both;
+}
+
+.error-container p{
+  margin: 20px;
 }
