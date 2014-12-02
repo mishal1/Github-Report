@@ -9,7 +9,7 @@
 
     <form id='add_profile'>
     <input id='username' placeholder="Enter a Github username">
-    <button id="submit" type="submit">Load profile</button>
+    <button class="load-profile" type="submit">Load profile</button>
     </form>
 
     <section class="profile-container">
@@ -39,37 +39,24 @@
     </template>
 
 
-    <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js'></script>
-
+    <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
     <script>
       $(document).ready(function(){
 
-        // function User(name) {
-        //   this.name = name;
-        // };
-        //
-        // User.prototype.addProfile = function(url){
-        //   $.get(url, function(user){
-        //     var newProfile = Mustache.render($('#profile-template').html(), user);
-        //     $('.profile-container').append(newProfile)
-        //   })
-        // };
+        $(".load-profile").on('click',function(event){
+          event.preventDefault();
 
-        $("#submit").on("click", function() {
-          // alert('hi');
-          // user = new User($("#username").val());
-          // $(function(){
-          //   url = "https://api.github.com/users/" + user.name});
-          alert($("#username").val());
-          // user.addProfile(url);
-          console.log($("#username").val());
-          // console.log('Mihai likes girls');
-          $.get("https://api.github.com/users/" + $("#username").val(), function(data){});
-        });
 
+          $.get('http://api.github.com/users/'+ $('#username').val() + '/', function(data){
+            console.log(data);
+          })
+        })
+    
+       
       });
     </script>
+
 
   </body>
 </html>
