@@ -6,30 +6,50 @@
     <link href="./styles/report.css" rel="stylesheet">
   </head>
   <body>
+
+    <form id='add_profile'>
+    <input id='username' placeholder="Enter a Github username">
+    <button type="submit">Load profile</button>
+    </form>
+
     <section class="profile-container">
+    </section>
+
+    <template id='profile-template'>
       <section class="profile">
         <section class="avatar">
-          <img src="https://avatars2.githubusercontent.com/u/8863744">
+          <img src="{{ avatar_url}}">
         </section>
 
         <section class="details">
           <h3>
-            <a href="https://github.com/mishal1">
+            <a href="{{ html_url}}">
               mishal1
             </a>
           </h3>
           <h4>
-            Repos: 20
+            Repos: {{public_repos}}
           </h4>
           <h4>
-            Followers: 11
+            Followers: {{followers}}
           </h4>
         </section>
         <br clear="all">
       </section>
-    </section>
+    </template>
+
 
     <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js'></script>
+
+    <script>
+      $(document).ready(function(){
+        $.get("https://api.github.com/users/mishal1", function(user){
+          var newProfile = Mustache.render($('#profile-template').html(), user);
+          $('.profile-container').append(newProfile)
+        })
+      });
+    </script>
 
   </body>
 </html>
