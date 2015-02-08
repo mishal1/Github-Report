@@ -8,6 +8,7 @@ The final version of the weeks challenge. The task was to produce a rock, paper,
 - Javascript
 - Mustache
 - jQuery
+- AJAX
 
 ##Technology Used
 - Javascript
